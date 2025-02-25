@@ -14,23 +14,54 @@
 .profile__column {
   display: flex;
   flex-direction: column;
+  width: 420;
+  height: 190;
+  justify-content: space-between;
 }
 
 .profile__name {
   margin: 0 0 12px;
   font-size: 32px;
-  line-height: 1;
+  line-height: 32px;
   font-weight: 500;
+  width: 420px;
+  height: 32px;
 }
 
 .profile__description {
   margin: 0;
+  color: #212121;
+  opacity: 70%;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  width: 97px;
+  height: 16px;
 }
 
 .profile__edit-btn {
+  display: flex;
+  gap: 8px;
   margin-top: auto;
+  border: none;
+  color: #212121;
+  opacity: 70%;
+  background-color: transparent;
+  text-align: left;
+}
+
+.profile__btn_divider {
+  flex-grow: 1;
 }
 
 .profile__add-btn {
-  margin-left: auto;
+  gap: 8px;
+  background-color: #212121;
+  color: #fcf5e5;
+  margin: 138px 0 0 auto;
+  font-size: 16px;
+  width: 149px;
+  height: 52px;
+  border-radius: 8px;
 }
