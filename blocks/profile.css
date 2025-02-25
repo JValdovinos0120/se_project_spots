@@ -51,17 +51,45 @@
   text-align: left;
 }
 
+.profile__edit-btn:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
 .profile__btn_divider {
   flex-grow: 1;
 }
 
 .profile__add-btn {
-  gap: 8px;
   background-color: #212121;
   color: #fcf5e5;
   margin: 138px 0 0 auto;
-  font-size: 16px;
-  width: 149px;
-  height: 52px;
+  max-width: 149px;
+  max-height: 52px;
   border-radius: 8px;
+}
+
+.profile__add-btn:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 627px) {
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .profile__avatar {
+    margin-right: 0;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__add-btn {
+    margin: 0;
+  }
 }

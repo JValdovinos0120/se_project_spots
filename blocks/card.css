@@ -40,3 +40,8 @@
   opacity: 40%;
   background-image: url(../images/heart.svg);
 }
+
+.card__like-btn:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
