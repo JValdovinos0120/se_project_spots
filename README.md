@@ -1,21 +1,13 @@
 # Project 3: Spots
 
-### Overview  
+### Overview    
 
-* Intro  
-* Figma  
-* Images  
-  
+Spots is a social media website where people can introduce themselves and share/like photos. There are options to edit your profile and add posts.
+
 **Intro**
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
+This project was made to test out my skills with different screen sizes as well as grid formats. Buttons on the site have hover states to indicate to the user when they are able to use the feature.
   
-**Figma**  
+**Video on the site**  
   
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+* [Link to the video](insert video link here)
