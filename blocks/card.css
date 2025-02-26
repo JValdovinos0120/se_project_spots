@@ -49,4 +49,8 @@
   .card__image {
     height: 288px;
   }
+
+  .card__content {
+    width: 288px;
+  }
 }
