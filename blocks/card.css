@@ -15,10 +15,9 @@
 
 .card__title {
   margin: 0;
-  max-width: 250px;
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.2;
   color: #212121;
   overflow: hidden;
@@ -63,6 +62,5 @@
     font-size: 16px;
     line-height: 1;
     max-width: 250px;
-    margin: 0;
   }
 }

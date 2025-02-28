@@ -67,6 +67,7 @@
 
 .profile__add-btn {
   background-color: #212121;
+  border: none;
   color: #fcf5e5;
   width: 157px;
   height: 52px;
