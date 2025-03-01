@@ -12,4 +12,4 @@ This project was made to test out my skills with different screen sizes as well 
 
 - [Link to the video](https://www.loom.com/share/c5cc8d0eaa7f4300981b46c0836442bc?sid=662672b1-fa8a-4640-b2c1-674e28e18715)
 
-- Repository [Link](https://github.com/JValdovinos0120/se_project_spots.git)
+- Deployed project [Link](https://jvaldovinos0120.github.io/se_project_spots/)
