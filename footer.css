@@ -1,0 +1,19 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
+.footer__copyright {
+  margin: 0;
+  opacity: 70%;
+  color: #212121;
+  padding: 60px 0;
+}
+
+@media screen and (max-width: 627px) {
+  .footer {
+    max-width: 288px;
+  }
+}
