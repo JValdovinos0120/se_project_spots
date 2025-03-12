@@ -12,7 +12,7 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
   },
   {
-    name: " very long bridge, over the forest and through the trees",
+    name: "A very long bridge, over the forest and through the trees",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
   },
   {
@@ -46,8 +46,10 @@ function getCardElement(data) {
     .cloneNode(true);
 
   const cardNameEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
 
   cardNameEl.textContent = data.name;
+  cardImageEl.src = data.link;
 
   return cardElement;
 }
