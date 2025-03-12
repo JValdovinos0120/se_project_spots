@@ -35,7 +35,7 @@
 .profile__description {
   margin: 0;
   color: #212121;
-  opacity: 70%;
+  opacity: 0.7;
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -55,13 +55,13 @@
   border: none;
   color: #212121;
   font-weight: 500;
-  opacity: 70%;
+  opacity: 0.7;
   background-color: transparent;
   text-align: left;
 }
 
 .profile__edit-btn:hover {
-  opacity: 100%;
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .profile__add-btn:hover {
-  opacity: 80%;
+  opacity: 0.8;
   cursor: pointer;
 }
 

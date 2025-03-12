@@ -39,7 +39,7 @@
 
 .modal__close-btn:hover {
   cursor: pointer;
-  opacity: 100%;
+  opacity: 1;
 }
 
 .modal__title {
@@ -60,14 +60,14 @@
   line-height: 18px;
   font-weight: 500;
   color: #212121;
-  opacity: 70%;
+  opacity: 0.7;
 }
 
 .modal__input {
   padding: 16px 12px;
   border-radius: 8px;
   color: #212121;
-  opacity: 40%;
+  opacity: 0.4;
   font-family: "Poppins", Arial, sans-serif;
   font-size: 20px;
   line-height: 1;
@@ -75,7 +75,7 @@
 }
 
 .modal__input:hover {
-  opacity: 100%;
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .modal__submit-btn:hover {
-  opacity: 80%;
+  opacity: 0.8;
   cursor: pointer;
 }
 
