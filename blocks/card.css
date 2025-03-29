@@ -47,10 +47,13 @@
 
 .card__like-btn_liked {
   background-image: url(../images/State=Liked.svg);
+  opacity: 1;
+  cursor: pointer;
 }
 
 .card__like-btn_liked:hover {
   background-image: url(../images/State=LikedH.svg);
+  cursor: pointer;
 }
 
 
