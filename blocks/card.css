@@ -76,7 +76,7 @@
 
 .card__delete-btn:hover {
   background:  url(../images/DeleteHover.svg) center no-repeat;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 @media screen and (max-width: 627px) {
