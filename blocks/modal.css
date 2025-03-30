@@ -17,6 +17,12 @@
   visibility: visible;
 }
 
+.modal__caption-wrapper {
+  width: 80vw;
+  margin-top: 8px;
+  padding-left: 45%;
+}
+
 .modal__caption {
   background-color: #212121;
   border-radius: 8px;
@@ -42,12 +48,21 @@
 
 .modal__container_type_preview {
   background-color: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 0;
   margin: 0;
+  position: relative;
 }
 
 .modal__image {
+  display: block;
   border-style: none;
+  object-fit: contain;
+  object-position: center;
   max-width: 80vw;
   max-height: 80vh;
   border-radius: 8px;
@@ -69,8 +84,8 @@
 .modal__close-btn_type_preview {
   width: 40px;
   height: 40px;
-  top: 0;
-  right: -52px;
+  top: -40px;
+  right: -40px;
   background: none;
   position: absolute;
 }
