@@ -17,6 +17,19 @@
   visibility: visible;
 }
 
+.modal__caption {
+  background-color: #212121;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 8px;
+  width: fit-content;
+}
+
 .modal__container {
   background-color: #fff;
   padding: 32px 50px;
@@ -25,6 +38,19 @@
   border-radius: 8px;
   box-sizing: border-box;
   position: relative;
+}
+
+.modal__container_type_preview {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__image {
+  border-style: none;
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 8px;
 }
 
 .modal__close-btn {
@@ -38,6 +64,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.modal__close-btn_type_preview {
+  width: 40px;
+  height: 40px;
+  top: 0;
+  right: -52px;
+  background: none;
+  position: absolute;
 }
 
 .modal__close-btn:hover img {
