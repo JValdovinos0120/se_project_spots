@@ -125,5 +125,5 @@ cardFormElement.addEventListener("submit", handleCardFormSubmit);
 
  initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
-  cardList.prepend(cardElement);
+  cardList.append(cardElement);
 });
