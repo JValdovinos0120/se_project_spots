@@ -193,3 +193,11 @@
     width: 100%;
   }
 }
+
+.modal__close-btn_type_preview {
+  top: -40px; 
+  right: 50px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+}
