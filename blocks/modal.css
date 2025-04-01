@@ -182,6 +182,7 @@
 
 .modal__image {
   width: 100%;
+  max-width: 90vw;
   border-radius: 8px;
 }
 
