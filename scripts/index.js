@@ -83,10 +83,6 @@ function getCardElement(data) {
     previewModalImageEl.alt = data.alt;
   });
 
-  previewModalCloseButton.addEventListener("click", () => {
-    closeModal(previewModal);
-  });
-
   cardDeleteButton.addEventListener("click", (evt) => {
     const card = evt.target.closest(".card");
     card.remove();
@@ -132,6 +128,10 @@ profileEditButton.addEventListener("click", () =>  {
 
 editModalCloseButton.addEventListener("click", () => {
   closeModal(editModal)});
+
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 cardModalButton.addEventListener("click", () => {
   openModal(cardModal);

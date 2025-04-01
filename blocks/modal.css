@@ -33,6 +33,7 @@
 .modal__container_type_preview {
   background-color: transparent;
   width: 100%;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
