@@ -117,6 +117,7 @@ function handleCardFormSubmit(evt) {
   };
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
+  cardFormElement.requestFullscreen();
   closeModal(cardModal);
 }
 
