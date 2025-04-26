@@ -152,6 +152,10 @@
   cursor: pointer;
 }
 
+.modal__submit-btn_inactive {
+  background-color: rgba(33, 33, 33, 0.5);
+}
+
 .modal__error {
   font-family: "Poppins", Arial, sans-serif;
   font-size: 16px;
