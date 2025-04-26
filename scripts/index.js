@@ -119,7 +119,7 @@ function handleCardFormSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardList.prepend(cardElement);
   cardFormElement.reset();
-  disableButton(cardSubmitButton);
+  disableButton(cardSubmitButton, settings);
   closeModal(cardModal);
 }
 
