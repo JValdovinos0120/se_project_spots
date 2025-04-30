@@ -1,3 +1,4 @@
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -94,10 +95,26 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+
+  function handleEscClose(evt) {
+    if (evt.key === "Escape") {
+      closeModal(modal);
+      document.removeEventListener("keydown", handleEscClose); // Clean up
+    }
+  }
+
+  document.addEventListener("keydown", handleEscClose);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  [editModal, cardModal, previewModal].forEach((modal) => {
+    modal.addEventListener("mousedown", (evt) => {
+      if (evt.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
 }
 
 function handleEditFormSubmit(evt) {
@@ -109,8 +126,6 @@ function handleEditFormSubmit(evt) {
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  console.log(cardModalNameInput.value);
-  console.log(cardModalLinkInput.value);
   const inputValues = { 
     name: cardModalNameInput.value,
     link: cardModalLinkInput.value,
@@ -126,7 +141,7 @@ function handleCardFormSubmit(evt) {
 profileEditButton.addEventListener("click", () =>  {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput]);
+  resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput], settings);
   openModal(editModal);
 });
 
@@ -143,8 +158,6 @@ cardModalButton.addEventListener("click", () => {
   
 cardModalCloseButton.addEventListener("click", () => {
   closeModal(cardModal)});
-
-
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
