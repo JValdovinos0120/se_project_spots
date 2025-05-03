@@ -97,6 +97,7 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", handleEscClose);
 }
+
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscClose);
@@ -110,6 +111,12 @@ function handleEscClose(evt) {
     }
   }
 }
+
+[editModal, cardModal, previewModal].forEach((modal) => {
+  modal.addEventListener("mousedown", (evt) => {
+    if (evt.target === modal) closeModal(modal);
+  });
+});
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
