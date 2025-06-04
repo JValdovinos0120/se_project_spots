@@ -1,3 +1,4 @@
+import { enableValidation, settings, resetValidation } from "./validation.js";
 
 const initialCards = [
   {
@@ -74,7 +75,7 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.alt;
 
- cardLikeButton.addEventListener("click", (evt) => {
+  cardLikeButton.addEventListener("click", (evt) => {
     cardLikeButton.classList.toggle("card__like-btn_liked");
   });
 
@@ -127,7 +128,7 @@ function handleEditFormSubmit(evt) {
 
 function handleCardFormSubmit(evt) {
   evt.preventDefault();
-  const inputValues = { 
+  const inputValues = {
     name: cardModalNameInput.value,
     link: cardModalLinkInput.value,
     alt: cardModalNameInput.value,
@@ -139,15 +140,20 @@ function handleCardFormSubmit(evt) {
   closeModal(cardModal);
 }
 
-profileEditButton.addEventListener("click", () =>  {
+profileEditButton.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, [editModalNameInput, editModalDescriptionInput], settings);
+  resetValidation(
+    editFormElement,
+    [editModalNameInput, editModalDescriptionInput],
+    settings
+  );
   openModal(editModal);
 });
 
 editModalCloseButton.addEventListener("click", () => {
-  closeModal(editModal)});
+  closeModal(editModal);
+});
 
 previewModalCloseButton.addEventListener("click", () => {
   closeModal(previewModal);
@@ -155,15 +161,18 @@ previewModalCloseButton.addEventListener("click", () => {
 
 cardModalButton.addEventListener("click", () => {
   openModal(cardModal);
-  });
-  
+});
+
 cardModalCloseButton.addEventListener("click", () => {
-  closeModal(cardModal)});
+  closeModal(cardModal);
+});
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
 
- initialCards.forEach((item) => {
+initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardList.append(cardElement);
 });
+
+enableValidation(settings);
