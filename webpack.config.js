@@ -8,7 +8,7 @@ module.exports = {
     main: "./src/pages/index.js",
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "."),
     filename: "main.js",
     publicPath: "",
   },
@@ -17,7 +17,7 @@ module.exports = {
   devtool: "inline-source-map",
   stats: "errors-only",
   devServer: {
-    static: path.resolve(__dirname, "./dist"),
+    static: path.resolve(__dirname, "."),
     compress: true,
     port: 5500,
     open: true,
