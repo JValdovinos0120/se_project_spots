@@ -15,12 +15,12 @@
   <body>
     <div class="page">
       <header class="header">
-        <img src="./images/logo.svg" alt="Spots Logo" class="header__logo" />
+        <img src="<%=require('./images/logo.svg')%>" alt="Spots Logo" class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
-            src="./images/avatar.jpg"
+            src="<%=require('./images/avatar.jpg')%>"
             alt="Bessie Coleman"
             class="profile__avatar"
           />
@@ -28,13 +28,13 @@
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/Pencil.svg" alt="Pencil Edit Icon" /><span
+              <img src="<%=require('./images/Pencil.svg')%>" alt="Pencil Edit Icon" /><span
                 >Edit Profile</span
               >
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="./images/Plus.svg" alt="Plus Icon" /><span>
+            <img src="<%=require('./images/Plus.svg')%>" alt="Plus Icon" /><span>
               New Post</span
             >
           </button>
@@ -59,7 +59,7 @@
       <div id="edit-modal" class="modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/closeicon.svg" alt="x-icon" />
+            <img src="<%=require('./images/closeicon.svg')%>" alt="x-icon" />
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form" novalidate>
@@ -98,7 +98,7 @@
       <div id="add-card-modal" class="modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
-            <img src="./images/closeicon.svg" alt="x-icon" />
+            <img src="<%=require('./images/closeicon.svg')%>" alt="x-icon" />
           </button>
           <h2 class="modal__title">New Post</h2>
           <form name="add-card-form" class="modal__form" novalidate>
@@ -136,7 +136,7 @@
     <div class="modal" id="preview-modal">
       <div class="modal__container modal__container_type_preview">
         <button type="button" class="modal__close-btn modal__close-btn_type_preview">
-          <img src="./images/closelight.svg" alt="x-icon" />
+          <img src="<%=require('./images/closelight.svg')%>" alt="x-icon" />
         </button>
         <img class="modal__image" src="" alt="" />
         <div class="modal__caption-wrapper">
