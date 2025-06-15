@@ -7,38 +7,25 @@ import {
   disableButton,
 } from "../scripts/validation.js";
 
-const initialCards = [
-  {
-    name: "Val Thorens",
-    alt: "Photo of Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+import Api from "../utils/api.js";
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "b4c1a3d6-ab2b-4855-8b36-58571fb43cd1",
+    "Content-Type": "application/json",
   },
-  {
-    name: "Restaurant terrace",
-    alt: "Photo of a restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    alt: "Photo of an outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    alt: "Bridge over a forest",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    alt: "Tunnel with light coming through windows",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    alt: "A log house in the snowy mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
+});
+
+api
+  .getAppInfo()
+  .then(([cards]) => {
+    cards.forEach((item) => {
+      const cardElement = getCardElement(item);
+      cardList.append(cardElement);
+    });
+  })
+  .catch(console.error);
 
 const profileEditButton = document.querySelector(".profile__edit-btn");
 const cardModalButton = document.querySelector(".profile__add-btn");
@@ -176,10 +163,5 @@ cardModalCloseButton.addEventListener("click", () => {
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardFormElement.addEventListener("submit", handleCardFormSubmit);
-
-initialCards.forEach((item) => {
-  const cardElement = getCardElement(item);
-  cardList.append(cardElement);
-});
 
 enableValidation(settings);
