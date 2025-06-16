@@ -19,11 +19,14 @@ const api = new Api({
 
 api
   .getAppInfo()
-  .then(([cards]) => {
+  .then(([cards, getUserInfo]) => {
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardList.append(cardElement);
     });
+    profileName.textContent = getUserInfo.name;
+    profileDescription.textContent = getUserInfo.about;
+    document.querySelector(".profile__avatar").src = getUserInfo.avatar;
   })
   .catch(console.error);
 
@@ -115,9 +118,14 @@ function handleEscClose(evt) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
-  profileName.textContent = editModalNameInput.value;
-  profileDescription.textContent = editModalDescriptionInput.value;
-  closeModal(editModal);
+  api
+    .editUserInfo(editModalNameInput.value, editModalDescriptionInput.value)
+    .then((data) => {
+      profileName.textContent = data.name;
+      profileDescription.textContent = data.about;
+      closeModal(editModal);
+    })
+    .catch(console.error);
 }
 
 function handleCardFormSubmit(evt) {
