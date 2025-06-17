@@ -9,8 +9,8 @@ import {
 
 import Api from "../utils/api.js";
 
-let cardToDelete = null;
-let cardIdToDelete = null;
+let selectedCard = null;
+let selectedCardId = null;
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -105,8 +105,8 @@ function getCardElement(data) {
   });
 
   cardDeleteButton.addEventListener("click", () => {
-    cardToDelete = cardElement;
-    cardIdToDelete = data._id;
+    selectedCard = cardElement;
+    selectedCardId = data._id;
     openModal(deleteModal);
   });
 
@@ -114,28 +114,28 @@ function getCardElement(data) {
 }
 
 confirmDeleteButton.addEventListener("click", () => {
-  if (!cardToDelete || !cardIdToDelete) return;
+  if (!selectedCard || !selectedCardId) return;
 
   confirmDeleteButton.textContent = "Deleting...";
 
   api
-    .deleteCard(cardIdToDelete)
+    .deleteCard(selectedCardId)
     .then(() => {
-      cardToDelete.remove();
+      selectedCard.remove();
       closeModal(deleteModal);
     })
     .catch(console.error)
     .finally(() => {
       confirmDeleteButton.textContent = "Delete";
-      cardToDelete = null;
-      cardIdToDelete = null;
+      selectedCard = null;
+      selectedCardId = null;
     });
 });
 
 cancelDeleteButton.addEventListener("click", () => {
   closeModal(deleteModal);
-  cardToDelete = null;
-  cardIdToDelete = null;
+  selectedCard = null;
+  selectedCardId = null;
 });
 
 function openModal(modal) {
