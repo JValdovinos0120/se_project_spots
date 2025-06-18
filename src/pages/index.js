@@ -202,6 +202,10 @@ function handleEscClose(evt) {
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+  const submitButton =
+    evt.submitter || editFormElement.querySelector(".modal__submit-btn");
+  const originalText = submitButton.textContent;
+  submitButton.textContent = "Saving...";
   api
     .editUserInfo(editModalNameInput.value, editModalDescriptionInput.value)
     .then((data) => {
@@ -209,7 +213,10 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = data.about;
       closeModal(editModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      submitButton.textContent = originalText;
+    });
 }
 
 // Function to handle card form submission
@@ -241,6 +248,11 @@ function handleCardFormSubmit(evt) {
 // Function to handle avatar submission
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+  const submitButton =
+    evt.submitter || avatarFormElement.querySelector(".modal__submit-btn");
+  const originalText = submitButton.textContent;
+  submitButton.textContent = "Saving...";
+
   api
     .editUserAvatar({
       avatar: avatarInput.value,
@@ -253,7 +265,7 @@ function handleAvatarSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      avatarSubmitButton.textContent = "Save";
+      submitButton.textContent = originalText;
     });
 }
 
