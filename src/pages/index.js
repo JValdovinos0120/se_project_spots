@@ -11,6 +11,7 @@ import Api from "../utils/api.js";
 
 let selectedCard = null;
 let selectedCardId = null;
+let currentUserId = null;
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -23,13 +24,16 @@ const api = new Api({
 api
   .getAppInfo()
   .then(([cards, getUserInfo]) => {
+    currentUserId = getUserInfo._id;
+
+    profileName.textContent = getUserInfo.name;
+    profileDescription.textContent = getUserInfo.about;
+    document.querySelector(".profile__avatar").src = getUserInfo.avatar;
+
     cards.forEach((item) => {
       const cardElement = getCardElement(item);
       cardList.append(cardElement);
     });
-    profileName.textContent = getUserInfo.name;
-    profileDescription.textContent = getUserInfo.about;
-    document.querySelector(".profile__avatar").src = getUserInfo.avatar;
   })
   .catch(console.error);
 
@@ -91,17 +95,26 @@ function getCardElement(data) {
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
-  cardImageEl.alt = data.alt;
+  cardImageEl.alt = data.name;
+
+  if (Array.isArray(data.likes) && currentUserId) {
+    const isLiked = data.likes.some(
+      (like) => String(like._id) === String(currentUserId)
+    );
+    if (isLiked) {
+      cardLikeButton.classList.add("card__like-btn_liked");
+    }
+  }
 
   cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-btn_liked");
+    toggleCardLike(data, cardLikeButton);
   });
 
   cardImageEl.addEventListener("click", () => {
     openModal(previewModal);
     previewModalImageEl.src = data.link;
     previewModalCaptionEl.textContent = data.name;
-    previewModalImageEl.alt = data.alt;
+    previewModalImageEl.alt = data.name;
   });
 
   cardDeleteButton.addEventListener("click", () => {
@@ -111,6 +124,28 @@ function getCardElement(data) {
   });
 
   return cardElement;
+}
+
+function toggleCardLike(cardData, likeButton) {
+  const isLiked = likeButton.classList.contains("card__like-btn_liked");
+
+  if (isLiked) {
+    api
+      .unlikeCard(cardData._id)
+      .then((res) => {
+        likeButton.classList.remove("card__like-btn_liked");
+        cardData.likes = res.likes;
+      })
+      .catch(console.error);
+  } else {
+    api
+      .likeCard(cardData._id)
+      .then((res) => {
+        likeButton.classList.add("card__like-btn_liked");
+        cardData.likes = res.likes;
+      })
+      .catch(console.error);
+  }
 }
 
 confirmDeleteButton.addEventListener("click", () => {
@@ -243,6 +278,12 @@ previewModalCloseButton.addEventListener("click", () => {
 });
 
 cardModalButton.addEventListener("click", () => {
+  cardFormElement.reset();
+  resetValidation(
+    cardFormElement,
+    [cardModalNameInput, cardModalLinkInput],
+    settings
+  );
   openModal(cardModal);
 });
 
@@ -251,6 +292,8 @@ cardModalCloseButton.addEventListener("click", () => {
 });
 
 avatarModalButton.addEventListener("click", () => {
+  avatarFormElement.reset();
+  resetValidation(avatarFormElement, [avatarInput], settings);
   openModal(avatarModal);
 });
 
