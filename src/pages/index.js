@@ -7,7 +7,7 @@ import {
   disableButton,
 } from "../scripts/validation.js";
 
-import Api from "../utils/api.js";
+import Api from "../utils/Api.js";
 
 let selectedCard = null;
 let selectedCardId = null;
@@ -97,13 +97,8 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
-  if (Array.isArray(data.likes) && currentUserId) {
-    const isLiked = data.likes.some(
-      (like) => String(like._id) === String(currentUserId)
-    );
-    if (isLiked) {
-      cardLikeButton.classList.add("card__like-btn_liked");
-    }
+  if (data.isLiked) {
+    cardLikeButton.classList.add("card__like-btn_liked");
   }
 
   cardLikeButton.addEventListener("click", () => {
@@ -158,12 +153,12 @@ confirmDeleteButton.addEventListener("click", () => {
     .then(() => {
       selectedCard.remove();
       closeModal(deleteModal);
+      selectedCard = null;
+      selectedCardId = null;
     })
     .catch(console.error)
     .finally(() => {
       confirmDeleteButton.textContent = "Delete";
-      selectedCard = null;
-      selectedCardId = null;
     });
 });
 
@@ -241,7 +236,7 @@ function handleCardFormSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      cardSubmitButton.textContent = "Submit";
+      cardSubmitButton.textContent = "Save";
     });
 }
 
@@ -290,12 +285,6 @@ previewModalCloseButton.addEventListener("click", () => {
 });
 
 cardModalButton.addEventListener("click", () => {
-  cardFormElement.reset();
-  resetValidation(
-    cardFormElement,
-    [cardModalNameInput, cardModalLinkInput],
-    settings
-  );
   openModal(cardModal);
 });
 
@@ -304,8 +293,6 @@ cardModalCloseButton.addEventListener("click", () => {
 });
 
 avatarModalButton.addEventListener("click", () => {
-  avatarFormElement.reset();
-  resetValidation(avatarFormElement, [avatarInput], settings);
   openModal(avatarModal);
 });
 
